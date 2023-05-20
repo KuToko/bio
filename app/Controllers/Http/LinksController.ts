@@ -7,15 +7,17 @@ export default class LinksController {
       .from('businesses')
       .where('username', params.username)
       .firstOrFail()
-
     const links = await Database.query()
       .from('links')
       .where('business_id', business.id)
       .orderBy('name', 'asc')
-
     const theme = 'dark'
+    const avatar = business.avatar
+      ? business.avatar
+      : 'https://ui-avatars.com/api/?name=' + business.name + '&color=1C1C1C&background=fff'
 
     return view.render(`links/${theme}`, {
+      avatar: avatar,
       username: params.username,
       links: links,
     })
