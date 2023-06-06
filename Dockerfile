@@ -20,6 +20,10 @@ FROM base AS production
 ENV PORT=8080
 ENV HOST=0.0.0.0
 ENV NODE_ENV=production
+ENV APP_KEY=X5MztHmlu9tmTAfAcC7f_39zOO8nnmFt
+ENV DRIVE_DISK=local
+ENV SESSION_DRIVER=cookie
+ENV CACHE_VIEWS=false
 
 COPY --chown=node:node ./package*.json ./
 RUN npm ci --production
