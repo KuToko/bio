@@ -20,6 +20,7 @@ FROM base AS production
 ENV PORT=8080
 ENV HOST=0.0.0.0
 ENV NODE_ENV=production
+ENV CACHE_VIEWS=false
 
 COPY --chown=node:node ./package*.json ./
 RUN npm ci --production
